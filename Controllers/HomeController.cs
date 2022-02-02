@@ -13,21 +13,21 @@ namespace NLogFilters.Controllers
         public ActionResult Index()
         {
             
-            logger.Info($"{User.Identity.Name} Into {ControllerContext.RouteData.Values["action"]} Page");
+            logger.WithProperty("Property1", User.Identity.Name).WithProperty("Property2", HttpContext.Request.UserHostAddress).Info($"{User.Identity.Name} Into {ControllerContext.RouteData.Values["action"]} Page");
             return View();
         }
 
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
-            logger.Info($"{User.Identity.Name} Into {ControllerContext.RouteData.Values["action"]} Page");
+            logger.WithProperty("Property1", User.Identity.Name).WithProperty("Property2", HttpContext.Request.UserHostAddress).Info($"{User.Identity.Name} Into {ControllerContext.RouteData.Values["action"]} Page");
             return View();
         }
 
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
-            logger.Info($"{User.Identity.Name} Into {ControllerContext.RouteData.Values["action"]} Page");
+            logger.WithProperty("Property1", User.Identity.Name).WithProperty("Property2", HttpContext.Request.UserHostAddress).Info($"{User.Identity.Name} Into {ControllerContext.RouteData.Values["action"]} Page");
             return View();
         }
     }
